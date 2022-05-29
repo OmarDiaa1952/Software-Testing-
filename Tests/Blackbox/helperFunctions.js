@@ -94,3 +94,8 @@ exports.stubFailed = (title)=>{
     const str = `${color("Failed","red")} ${color(title,"brightMagenta")} ${color("stub","red")}`;
     console.log(str);   
 }
+
+exports.printToServer = (str)=> (req,res,next)=>{
+    console.log(color(str,"blue"));
+    next();
+}
