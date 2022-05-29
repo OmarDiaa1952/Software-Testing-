@@ -85,3 +85,12 @@ color = (str, color = "default") => {
     if (!colors[color]) color = "default";
     return `\u001b[${colors[color]}m${str}\u001b[0m`;
 };
+
+exports.stubPassed = (title)=>{
+    const str = `${color("Passed","green")} ${color(title,"brightMagenta")} ${color("stub","green")}`;
+    console.log(str);   
+}
+exports.stubFailed = (title)=>{
+    const str = `${color("Failed","red")} ${color(title,"brightMagenta")} ${color("stub","red")}`;
+    console.log(str);   
+}
