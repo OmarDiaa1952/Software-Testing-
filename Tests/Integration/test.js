@@ -16,9 +16,9 @@ withdraw = async (amount) => {
 };
 
 const test = async ()=>{
-    console.log("Test expected to pass : ")
+    console.log("Tests started")
     await withdraw(1000);
-    console.log("Test expected to fail : ")
     await withdraw(12000);
+    console.log("Tests finished")
 }
 test();

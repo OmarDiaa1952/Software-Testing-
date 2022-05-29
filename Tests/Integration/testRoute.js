@@ -6,9 +6,7 @@ const stub3 = require("./stubs/validateAtm");
 const stub4 = require("./stubs/withdraw");
 const print = require("../Blackbox/helperFunctions").printToServer;
 
-let tests = 0;
-
-router.post("/testWithdraw",print(`Test ${tests++}`),stub1,stub2,stub3,stub4.print(`\n`));
+router.post("/testWithdraw",print(`Test case :`),stub1,stub2,stub3,stub4);
 
 
 module.exports = router;

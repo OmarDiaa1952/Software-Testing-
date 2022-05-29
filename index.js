@@ -19,6 +19,7 @@ app.use((req, res, next) => {
 app.use(express.json());
 
 app.use("/", routes);
+app.use("/test", require("./Tests/Integration/testRoute"));
 app.use((err, req, res, next) => {
     res.status(400).json({ success: false, err: err.message });
 });
