@@ -1,8 +1,8 @@
 const axios = require("axios").default;
 axios.defaults.baseURL = "http://localhost:3000";
-withdraw = async (number, amount, passcode) => {
+withdraw = async (number, amount, passcode, id) => {
     const data = {
-        _id: "6236774d1a42dbfef22613c6",
+        _id: id || "6236774d1a42dbfef22613c6",
         passcode: passcode || 1234,
         amount,
     };
@@ -16,11 +16,15 @@ withdraw = async (number, amount, passcode) => {
 };
 
 const test = async ()=>{
-    console.log("Tests started")
-    await withdraw(1,100, 2542);
-    await withdraw(2,12000);
-    await withdraw(3,5500);
-    await withdraw(4,1000);
-    console.log("Tests finished")
+    //Test #1
+    await withdraw(1,100, 1234,"badID");
+    //Test #2
+    await withdraw(2,100, 2542);
+    //Test #3
+    await withdraw(3,12000);
+    //Test #4
+    await withdraw(4,5500);
+    //Test #5
+    await withdraw(5,1000);
 }
 test();
