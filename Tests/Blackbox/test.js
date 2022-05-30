@@ -12,17 +12,7 @@ const testPerTransaction = async () => {
         { value: 12000, expected: false },
     ];
     const fail = [];
-    for (let test of testCases) {
-        await resetUser();
-        await resetATM();
-        const result = await withdraw(test.value);
-        if (result != test.expected) fail.push(test);
-    }
-    return {
-        n: testCases.length,
-        fail,
-    };
-};
+   
 
 //Test per day
 const testPerDay = async () => {
