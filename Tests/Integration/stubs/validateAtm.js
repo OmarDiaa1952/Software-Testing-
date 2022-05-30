@@ -10,8 +10,10 @@ module.exports=async(req,res,next)=>{
         0
     );
 
-    if (amount > atmBalance)
+    if (amount > atmBalance){
+        fail("Validate ATM"); 
         res.status(400).json({msg:"Insufficient amount in ATM"});
+    }
     else{
         pass("Validate ATM");
         next();

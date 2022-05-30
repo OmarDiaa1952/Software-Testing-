@@ -87,15 +87,15 @@ color = (str, color = "default") => {
 };
 
 exports.stubPassed = (title)=>{
-    const str = `${color("Passed","green")} ${color(title,"brightMagenta")} ${color("stub","green")}`;
+    const str = `${color("\tPassed","green")} ${color(title,"brightMagenta")} ${color("stub","green")}`;
     console.log(str);   
 }
 exports.stubFailed = (title)=>{
-    const str = `${color("Failed","red")} ${color(title,"brightMagenta")} ${color("stub","red")}`;
+    const str = `${color("\tFailed","red")} ${color(title,"brightMagenta")} ${color("stub","red")}`;
     console.log(str);   
 }
 
-exports.printToServer = (str)=> (req,res,next)=>{
-    console.log(color(str,"blue"));
+exports.printToServer = ()=> (req,res,next)=>{
+    console.log(color(`\tTest #${req.params.id}`,"blue"));
     next();
 }
