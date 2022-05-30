@@ -8,7 +8,6 @@ exports.getBalance = async (req, res, next) => {
     if (user) res.json({ name: user.name, balance: user.balance });
     else res.status(400).json({ msg: "User not found" });
 };
-
 exports.withdraw = async (req, res, next) => {
     const { _id, passcode, amount } = req.body;
     const date = new Date().toISOString().substring(0, 10);
@@ -27,6 +26,9 @@ exports.withdraw = async (req, res, next) => {
             else {
                 const atm = await ATM.findOne({}).exec();
                 const balances = atm.balance;
+                
+                
+
 
                 const atmBalance = Object.entries(balances).reduce(
                     (total, [key, value]) => total + value * +key.substring(1),
