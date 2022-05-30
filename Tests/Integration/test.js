@@ -6,6 +6,8 @@ withdraw = async (number, amount, passcode, id) => {
         passcode: passcode || 1234,
         amount,
     };
+    
+    
     let result;
     try {
         result = await axios.post(`/test/testWithdraw/${number}`, data);
